@@ -21,9 +21,11 @@ class RoomList extends Component {
 		return (
 			<div className="room-list">
 				<div>
+					<ul>
 					{this.state.rooms.map(room => (
 						<li key={room.key}>{room.name}</li>
 					))}
+					</ul>
 				</div>
 			</div>
 		);
