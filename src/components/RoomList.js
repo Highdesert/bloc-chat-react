@@ -20,6 +20,7 @@ class RoomList extends Component {
 
 	render() {
 		return (
+
 			<Container id="roomsList">
 				<Col>
 					{this.state.rooms.map(room => (
@@ -27,6 +28,7 @@ class RoomList extends Component {
 					))}
 				</Col>
 			</Container>
+
 		);
 	}
 }
