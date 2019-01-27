@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Row, Container, Col } from "reactstrap";
 
 class RoomList extends Component {
 	constructor(props) {
@@ -19,13 +20,13 @@ class RoomList extends Component {
 
 	render() {
 		return (
-			<div className="room-list">
-				<div>
+			<Container id="roomsList">
+				<Col>
 					{this.state.rooms.map(room => (
 						<li key={room.key}>{room.name}</li>
 					))}
-				</div>
-			</div>
+				</Col>
+			</Container>
 		);
 	}
 }
