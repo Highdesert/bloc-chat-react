@@ -1,17 +1,21 @@
 header {
   background-color: #4286f4;
   text-align: center;
-  color: white;
+  color: black;
   padding-top: 5%;
   padding-bottom: 5%;
   font-size: 30px;
   font-weight: bold;
-  
-  }
+}
 
 #roomsList {
   text-align: left;
-  font-size: 15px;
+  font-size: 20px;
   padding-bottom: 5%;
+  margin: auto;
+}
 
+#form-group {
+  text-align: center;
+  float: right;
 }
