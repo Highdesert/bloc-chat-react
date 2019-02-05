@@ -23,6 +23,7 @@ class MessageList extends Component {
   handleChange(e) {
     this.setState({ newMessageContent: e.target.value });
   }
+
   render() {
     const activeRoomId = this.props.activeRoomId;
     return (
@@ -30,14 +31,6 @@ class MessageList extends Component {
         <div className="activeRoom">Active Room: {this.props.activeRoom}</div>
         {this.state.messages
           .filter(message => {
-            console.log(
-              message.roomId +
-                "is equal to" +
-                this.props.activeRoomId +
-                "?" +
-                message.roomId ===
-                this.props.activeRoomId
-            );
             return message.roomId === this.props.activeRoomId;
           })
           .map((message, i) => (

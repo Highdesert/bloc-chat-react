@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Container, Col } from "reactstrap";
 
 class RoomList extends Component {
   constructor(props) {
@@ -53,13 +52,12 @@ class RoomList extends Component {
 
             <div id="roomsList">
               <h3>List of Available Chat Rooms</h3>
-              <ul>
-                {this.state.rooms.map((room, i) => (
-                  <a key={i} onClick={() => this.props.setActiveRoom(room)}>
-                    <li>{room.name}</li>
-                  </a>
-                ))}
-              </ul>
+
+              {this.state.rooms.map((room, i) => (
+                <a key={i} onClick={() => this.props.setActiveRoom(room)}>
+                  <li>{room.name}</li>
+                </a>
+              ))}
             </div>
           </form>
         </div>

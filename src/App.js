@@ -19,9 +19,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeRoom: null,
-      activeRoomId: "",
-      currentUser: "Guest"
+      activeRoom: "",
+      activeRoomId: ""
     };
   }
 
@@ -47,7 +46,6 @@ class App extends Component {
               activeRoom={this.state.activeRoom}
               activeRoomId={this.state.activeRoomId}
               firebase={firebase}
-              user={this.state.currentUser}
             />
           </div>
         </div>
