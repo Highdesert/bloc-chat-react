@@ -49,15 +49,19 @@ class RoomList extends Component {
               value={this.state.newRoomName}
               onChange={e => this.handleChange(e)}
             />
-            <input type="submit" />
-          </form>
-        </div>
+            <input className="btn btn-primary" type="submit" />
 
-        <div id="roomsList">
-          <h3>List of Available Chat Rooms</h3>
-          {this.state.rooms.map(room => (
-            <li key={room.key}>{room.name}</li>
-          ))}
+            <div id="roomsList">
+              <h3>List of Available Chat Rooms</h3>
+              <ul>
+                {this.state.rooms.map((room, i) => (
+                  <a key={i} onClick={() => this.props.setActiveRoom(room)}>
+                    <li>{room.name}</li>
+                  </a>
+                ))}
+              </ul>
+            </div>
+          </form>
         </div>
       </React.Fragment>
     );
