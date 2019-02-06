@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Container, Row, Col } from "reactstrap";
 
 class MessageList extends Component {
   constructor(props) {
@@ -27,21 +28,21 @@ class MessageList extends Component {
   render() {
     const activeRoomId = this.props.activeRoomId;
     return (
-      <React.Fragment>
-        <div className="activeRoom">Active Room: {this.props.activeRoom}</div>
+      <Container>
+        <div className="row">Active Room: {this.props.activeRoom}</div>
         {this.state.messages
           .filter(message => {
-            return message.roomId === this.props.activeRoomId;
+            return message.roomId === activeRoomId;
           })
           .map((message, i) => (
-            <div>
-              <p key={i}>Message content: {message.content}</p>
+            <div className="message-content">
               <p key={i}>Username: {message.username}</p>
+              <p key={i}>Message: {message.content}</p>
+
               <p key={i}>Sent at: {message.sentAt}</p>
             </div>
           ))}
-        ;
-      </React.Fragment>
+      </Container>
     );
   }
 }

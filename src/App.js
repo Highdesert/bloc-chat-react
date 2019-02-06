@@ -3,6 +3,7 @@ import "./App.css";
 import * as firebase from "firebase";
 import RoomList from "./components/RoomList";
 import MessageList from "./components/MessageList";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // Initialize Firebase
 var config = {
@@ -31,23 +32,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="header">
+        <div className="display-4 text-center 1.5rem bg-info" id="header">
           <header>Bloc Chat</header>
         </div>
+
         <div className="roomList">
           <RoomList
             setActiveRoom={this.setActiveRoom.bind(this)}
             firebase={firebase}
           />
         </div>
-        <div className="container">
-          <div className="messageList">
-            <MessageList
-              activeRoom={this.state.activeRoom}
-              activeRoomId={this.state.activeRoomId}
-              firebase={firebase}
-            />
-          </div>
+
+        <div className="messageList">
+          <MessageList
+            activeRoom={this.state.activeRoom}
+            activeRoomId={this.state.activeRoomId}
+            firebase={firebase}
+          />
         </div>
       </div>
     );
