@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Container } from "reactstrap";
 
 class RoomList extends Component {
   constructor(props) {
@@ -30,9 +31,10 @@ class RoomList extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Container>
+        <h3 className="">Create A Room</h3>
+
         <div className="form">
-          <h3>Create A Room</h3>
           <form
             className="form-group"
             onSubmit={e => {
@@ -48,10 +50,10 @@ class RoomList extends Component {
               value={this.state.newRoomName}
               onChange={e => this.handleChange(e)}
             />
-            <input className="btn btn-primary" type="submit" />
+            <input className="btn-md btn-primary" type="submit" />
 
-            <div id="roomsList">
-              <h3>List of Available Chat Rooms</h3>
+            <div className="roomsList">
+              <h4 className="text-primary">Available Chat Rooms</h4>
 
               {this.state.rooms.map((room, i) => (
                 <a key={i} onClick={() => this.props.setActiveRoom(room)}>
@@ -61,7 +63,7 @@ class RoomList extends Component {
             </div>
           </form>
         </div>
-      </React.Fragment>
+      </Container>
     );
   }
 }
