@@ -35,11 +35,11 @@ class MessageList extends Component {
             return message.roomId === activeRoomId;
           })
           .map((message, i) => (
-            <div className="message-content">
-              <p key={i}>Username: {message.username}</p>
-              <p key={i}>Message: {message.content}</p>
+            <div key={i} className="message-content">
+              <p>Username: {message.username}</p>
+              <p>Message: {message.content}</p>
 
-              <p key={i}>Sent at: {message.sentAt}</p>
+              <p>Sent at: {message.sentAt}</p>
             </div>
           ))}
       </Container>
