@@ -3,6 +3,7 @@ import "./App.css";
 import * as firebase from "firebase";
 import RoomList from "./components/RoomList";
 import MessageList from "./components/MessageList";
+import User from "./components/User";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Initialize Firebase
@@ -21,7 +22,8 @@ class App extends Component {
     super(props);
     this.state = {
       activeRoom: "",
-      activeRoomId: ""
+      activeRoomId: "",
+      currentUser: "Guest"
     };
   }
 
@@ -29,6 +31,11 @@ class App extends Component {
     this.setState({ activeRoom: selectedRoom.name });
     this.setState({ activeRoomId: selectedRoom.key });
   };
+
+  setUser = user => {
+    this.setState({ currentUser: user ? user.displayName : "Guest" });
+  };
+
   render() {
     return (
       <div className="App">
@@ -36,19 +43,32 @@ class App extends Component {
           <header>Bloc Chat</header>
         </div>
 
-        <div className="roomList">
-          <RoomList
-            setActiveRoom={this.setActiveRoom.bind(this)}
-            firebase={firebase}
-          />
-        </div>
+        <User
+          firebase={firebase}
+          setUser={this.setUser.bind(this)}
+          user={this.state.currentUser}
+        />
 
-        <div className="messageList">
-          <MessageList
-            activeRoom={this.state.activeRoom}
-            activeRoomId={this.state.activeRoomId}
-            firebase={firebase}
-          />
+        <div className="container">
+          <div className="row">
+            <div className="col-md">
+              <RoomList
+                setActiveRoom={this.setActiveRoom.bind(this)}
+                firebase={firebase}
+              />
+            </div>
+
+            <div className="col-md">
+              <div className="messageList">
+                <MessageList
+                  activeRoom={this.state.activeRoom}
+                  activeRoomId={this.state.activeRoomId}
+                  firebase={firebase}
+                  user={this.state.currentUser}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
