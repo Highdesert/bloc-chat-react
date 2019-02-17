@@ -4,6 +4,7 @@ import * as firebase from "firebase";
 import RoomList from "./components/RoomList";
 import MessageList from "./components/MessageList";
 import User from "./components/User";
+import Header from "./components/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Initialize Firebase
@@ -20,6 +21,7 @@ firebase.initializeApp(config);
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       activeRoom: "",
       activeRoomId: "",
@@ -38,10 +40,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="display-4 text-center 1.5rem bg-info" id="header">
-          <header>Bloc Chat</header>
-        </div>
+      <div className="container">
+        <Header />
 
         <User
           firebase={firebase}
@@ -49,27 +49,17 @@ class App extends Component {
           user={this.state.currentUser}
         />
 
-        <div className="container">
-          <div className="row">
-            <div className="col-md">
-              <RoomList
-                setActiveRoom={this.setActiveRoom.bind(this)}
-                firebase={firebase}
-              />
-            </div>
+        <RoomList
+          setActiveRoom={this.setActiveRoom.bind(this)}
+          firebase={firebase}
+        />
 
-            <div className="col-md">
-              <div className="messageList">
-                <MessageList
-                  activeRoom={this.state.activeRoom}
-                  activeRoomId={this.state.activeRoomId}
-                  firebase={firebase}
-                  user={this.state.currentUser}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <MessageList
+          activeRoom={this.state.activeRoom}
+          activeRoomId={this.state.activeRoomId}
+          firebase={firebase}
+          user={this.state.currentUser}
+        />
       </div>
     );
   }

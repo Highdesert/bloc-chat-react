@@ -21,14 +21,20 @@ class User extends Component {
     this.props.firebase.auth().signOut();
   };
 
+  const;
+
   render() {
     return (
       <div className="container">
-        <h6>Current User: {this.props.user}</h6>
-        <button type="submit" onClick={this.signInWithPopup}>
+        <h6>You are currently logged in as: {this.props.user}</h6>
+        <button
+          className="btn btn-sm"
+          type="submit"
+          onClick={this.signInWithPopup}
+        >
           Log In
         </button>
-        <button type="submit" onClick={this.signOut}>
+        <button className="btn btn-sm" type="submit" onClick={this.signOut}>
           Log Out
         </button>
       </div>
