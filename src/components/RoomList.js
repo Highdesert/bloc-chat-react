@@ -31,18 +31,17 @@ class RoomList extends Component {
 
   render() {
     return (
-      <Container>
-        <h3 className="">Create A Room</h3>
+      <div className="container">
+        <h4 className="">Create A Room</h4>
 
-        <div className="form">
-          <form
-            className="form-group"
-            onSubmit={e => {
-              e.preventDefault();
-              this.createRooms(this.state.newRoomName);
-            }}
-          >
-            <label htmlFor="roomName" />
+        <form
+          className="form-group"
+          onSubmit={e => {
+            e.preventDefault();
+            this.createRooms(this.state.newRoomName);
+          }}
+        >
+          <label>
             <input
               placeholder="Enter text"
               type="text"
@@ -51,19 +50,19 @@ class RoomList extends Component {
               onChange={e => this.handleChange(e)}
             />
             <input className="btn-md btn-primary" type="submit" />
+          </label>
 
-            <div className="roomsList">
-              <h4 className="text-primary">Available Chat Rooms</h4>
+          <div className="roomsList">
+            <h4 className="text-primary">Available Chat Rooms</h4>
 
-              {this.state.rooms.map((room, i) => (
-                <a key={i} onClick={() => this.props.setActiveRoom(room)}>
-                  <li>{room.name}</li>
-                </a>
-              ))}
-            </div>
-          </form>
-        </div>
-      </Container>
+            {this.state.rooms.map((room, i) => (
+              <a key={i} onClick={() => this.props.setActiveRoom(room)}>
+                <li>{room.name}</li>
+              </a>
+            ))}
+          </div>
+        </form>
+      </div>
     );
   }
 }
