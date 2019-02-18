@@ -6,7 +6,8 @@ class RoomList extends Component {
     super(props);
     this.state = {
       rooms: [],
-      newRoomName: ""
+      newRoomName: "",
+      roomId: ""
     };
     this.roomsRef = this.props.firebase.database().ref("rooms");
   }
@@ -19,7 +20,8 @@ class RoomList extends Component {
     });
   }
 
-  createRooms(newRoomName) {
+  createRooms(e, newRoomName) {
+    e.preventDefault();
     this.roomsRef.push({
       name: newRoomName
     });
@@ -37,20 +39,17 @@ class RoomList extends Component {
         <form
           className="form-group"
           onSubmit={e => {
-            e.preventDefault();
-            this.createRooms(this.state.newRoomName);
+            this.createRooms(e, this.state.newRoomName);
           }}
         >
-          <label>
-            <input
-              placeholder="Enter text"
-              type="text"
-              id="roomName"
-              value={this.state.newRoomName}
-              onChange={e => this.handleChange(e)}
-            />
-            <input className="btn-md btn-primary" type="submit" />
-          </label>
+          <input
+            placeholder="Enter text"
+            type="text"
+            id="roomName"
+            value={this.state.newRoomName}
+            onChange={e => this.handleChange(e)}
+          />
+          <input className="btn-md btn-primary" type="submit" />
 
           <div className="roomsList">
             <h4 className="text-primary">Available Chat Rooms</h4>
