@@ -31,7 +31,7 @@ class RoomList extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="rooms-list">
         <h4 className="">Create A Room</h4>
 
         <form

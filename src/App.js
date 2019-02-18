@@ -5,7 +5,6 @@ import RoomList from "./components/RoomList";
 import MessageList from "./components/MessageList";
 import User from "./components/User";
 import Header from "./components/Header";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 // Initialize Firebase
 var config = {
@@ -40,7 +39,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
         <Header />
 
         <User

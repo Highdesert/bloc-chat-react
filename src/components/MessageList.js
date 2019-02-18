@@ -17,7 +17,6 @@ class MessageList extends Component {
     this.messagesRef.on("child_added", snapshot => {
       const message = snapshot.val();
       message.key = snapshot.key;
-      //setting state by taking empty messages[] and adding the new message onto current messages
       this.setState({ messages: this.state.messages.concat(message) });
     });
   }
@@ -41,8 +40,8 @@ class MessageList extends Component {
     const activeRoomId = this.props.activeRoomId;
 
     return (
-      <div className="container">
-        <div>
+      <div className="message-list">
+        <div className="">
           Active Room: {this.props.activeRoom}
           {this.state.messages
             .filter(message => {
