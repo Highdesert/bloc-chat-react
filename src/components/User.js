@@ -25,18 +25,27 @@ class User extends Component {
 
   render() {
     return (
-      <div className="container">
-        <h6>You are currently logged in as: {this.props.user}</h6>
-        <button
-          className="btn btn-sm"
-          type="submit"
-          onClick={this.signInWithPopup}
-        >
-          Log In
-        </button>
-        <button className="btn btn-sm" type="submit" onClick={this.signOut}>
-          Log Out
-        </button>
+      <div className="user">
+        <h6>Logged in as: {this.props.user}</h6>
+
+        <div className="btn group">
+          <button
+            id="login"
+            className="btn btn-sm"
+            type="submit"
+            onClick={this.signInWithPopup}
+          >
+            Log In
+          </button>
+          <button
+            id="logout"
+            className="btn btn-sm"
+            type="submit"
+            onClick={this.signOut}
+          >
+            Log Out
+          </button>
+        </div>
       </div>
     );
   }
