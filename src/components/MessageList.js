@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
 
 class MessageList extends Component {
   constructor(props) {
@@ -10,7 +9,7 @@ class MessageList extends Component {
       newMessageContent: null
     };
 
-    this.messagesRef = this.props.firebase.database().ref("Messages");
+    this.messagesRef = this.props.firebase.database().ref("messages");
   }
 
   componentDidMount() {
