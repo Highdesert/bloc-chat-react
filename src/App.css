@@ -8,14 +8,16 @@
 }
 
 .user {
-  margin-top: 15px;
+  display: block;
+  background-color: #ccc;
 }
 
-.user h6 {
-  padding: 10px;
-  margin-top: 10px;
+.message-list {
+  float: right;
+  display: flexbox;
 }
 
-li {
-  list-style: none;
+.message-text {
+  display: block;
+  float: right;
 }

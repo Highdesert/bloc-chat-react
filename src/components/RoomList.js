@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Container } from "reactstrap";
 
 class RoomList extends Component {
   constructor(props) {

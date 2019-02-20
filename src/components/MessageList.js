@@ -40,21 +40,18 @@ class MessageList extends Component {
 
     return (
       <div className="message-list">
-        <div className="">
-          Active Room: {this.props.activeRoom}
-          {this.state.messages
-            .filter(message => {
-              return message.roomId === activeRoomId;
-            })
-            .map((message, i) => (
-              <ul key={i} className="message-content">
-                <li>Username: {message.username}</li>
-                <li>Message: {message.content}</li>
-                <li>Sent at: {message.sentAt}</li>
-              </ul>
-            ))}
-        </div>
-
+        <h3>Active Room: {this.props.activeRoom}</h3>
+        {this.state.messages
+          .filter(message => {
+            return message.roomId === activeRoomId;
+          })
+          .map((message, i) => (
+            <ul key={i} className="message-content">
+              <li>Username: {message.username}</li>
+              <li>Message: {message.content}</li>
+              <li>Sent at: {message.sentAt}</li>
+            </ul>
+          ))}
         <div className="messageText">
           <h4>Create Message</h4>
           <form
